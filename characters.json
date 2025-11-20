@@ -1,0 +1,661 @@
+{
+  "ninja_animals": {
+    "toad_sage": {
+      "name": "Gambit the Packet Toad",
+      "animal_type": "Toad",
+      "rank": "S-Rank",
+      "description": "A massive toad sage with 8-bit pixel armor, wielding a giant katana made of network cables. Master of packet manipulation jutsu.",
+      "appearance": {
+        "style": "2D NES sprite",
+        "colors": ["orange", "brown", "blue"],
+        "size": "Large (32x32 pixels base)",
+        "special_features": "Wears a headband with a WiFi symbol, carries scrolls with binary code"
+      },
+      "combat_style": "Naruto Summoning / Sage Mode",
+      "pentesting_abilities": {
+        "primary": "Packet Sniffing Jutsu",
+        "secondary": "ARP Poisoning Technique",
+        "ultimate": "Man-in-the-Middle Sage Mode",
+        "passive": "Network Reconnaissance"
+      },
+      "jutsu_list": [
+        {
+          "name": "Water Style: Packet Flood",
+          "type": "Offensive",
+          "description": "Unleashes a torrent of network packets to overwhelm defenses (DoS simulation)",
+          "chakra_cost": "High",
+          "pentesting_equivalent": "Network Flooding"
+        },
+        {
+          "name": "Summoning: Tadpole Scanner Swarm",
+          "type": "Reconnaissance",
+          "description": "Summons tiny tadpoles that scan all ports and services",
+          "chakra_cost": "Medium",
+          "pentesting_equivalent": "Nmap Port Scanning"
+        },
+        {
+          "name": "Toad Oil: SSL Strip",
+          "type": "Support/Debuff",
+          "description": "Coats enemies in oil that downgrades their encryption",
+          "chakra_cost": "Medium",
+          "pentesting_equivalent": "SSL Stripping"
+        }
+      ],
+      "stats": {
+        "health": 850,
+        "chakra": 900,
+        "attack": 75,
+        "defense": 80,
+        "speed": 60,
+        "intelligence": 95
+      }
+    },
+    "snake_infiltrator": {
+      "name": "Pythonix the Code Serpent",
+      "animal_type": "Snake",
+      "rank": "S-Rank",
+      "description": "A cunning white snake with green circuit patterns on its scales. Expert in code injection and payload delivery.",
+      "appearance": {
+        "style": "2D NES sprite",
+        "colors": ["white", "green", "purple"],
+        "size": "Large (elongated, 16x64 pixels)",
+        "special_features": "Glowing green eyes, forked tongue displays binary, scales shimmer with matrix code"
+      },
+      "combat_style": "Orochimaru Style",
+      "pentesting_abilities": {
+        "primary": "SQL Injection Strike",
+        "secondary": "Payload Delivery",
+        "ultimate": "Remote Code Execution - Reanimation Jutsu",
+        "passive": "Vulnerability Detection"
+      },
+      "jutsu_list": [
+        {
+          "name": "Hidden Shadow Snake: Buffer Overflow",
+          "type": "Offensive",
+          "description": "Multiple snake clones exploit memory vulnerabilities",
+          "chakra_cost": "High",
+          "pentesting_equivalent": "Buffer Overflow Exploit"
+        },
+        {
+          "name": "Python Script Summoning",
+          "type": "Support",
+          "description": "Writes and executes automated exploitation scripts",
+          "chakra_cost": "Medium",
+          "pentesting_equivalent": "Script Automation"
+        },
+        {
+          "name": "Shedding: Bypass IDS",
+          "type": "Evasion",
+          "description": "Sheds skin to evade detection systems",
+          "chakra_cost": "Low",
+          "pentesting_equivalent": "IDS/IPS Evasion"
+        }
+      ],
+      "stats": {
+        "health": 700,
+        "chakra": 950,
+        "attack": 85,
+        "defense": 65,
+        "speed": 90,
+        "intelligence": 98
+      }
+    },
+    "slug_medic": {
+      "name": "Katsuya the Forensics Slug",
+      "animal_type": "Slug",
+      "rank": "A-Rank",
+      "description": "A gentle blue slug with antennae that detect system anomalies. Master healer and digital forensics expert.",
+      "appearance": {
+        "style": "2D NES sprite",
+        "colors": ["light_blue", "white", "pink"],
+        "size": "Large (32x24 pixels)",
+        "special_features": "Antennae glow when detecting malware, leaves healing pixel trails"
+      },
+      "combat_style": "Tsunade Style - Medical Ninja",
+      "pentesting_abilities": {
+        "primary": "System Restore & Healing",
+        "secondary": "Log Analysis",
+        "ultimate": "Digital Forensics: 100 Healings Mark",
+        "passive": "Continuous Monitoring"
+      },
+      "jutsu_list": [
+        {
+          "name": "Mystical Healing: System Patch",
+          "type": "Healing/Support",
+          "description": "Repairs system vulnerabilities and patches exploits",
+          "chakra_cost": "High",
+          "pentesting_equivalent": "Vulnerability Remediation"
+        },
+        {
+          "name": "Slug Division: Honeypot Network",
+          "type": "Defensive",
+          "description": "Creates decoy systems to trap attackers",
+          "chakra_cost": "Medium",
+          "pentesting_equivalent": "Honeypot Deployment"
+        },
+        {
+          "name": "Acid Spray: Malware Removal",
+          "type": "Cleansing",
+          "description": "Removes malicious code and rootkits",
+          "chakra_cost": "Medium",
+          "pentesting_equivalent": "Malware Analysis & Removal"
+        }
+      ],
+      "stats": {
+        "health": 900,
+        "chakra": 1000,
+        "attack": 45,
+        "defense": 85,
+        "speed": 40,
+        "intelligence": 92
+      }
+    },
+    "hawk_scanner": {
+      "name": "Garuda the Recon Hawk",
+      "animal_type": "Hawk",
+      "rank": "A-Rank",
+      "description": "A majestic brown hawk with radar-dish wings. Swift aerial reconnaissance specialist.",
+      "appearance": {
+        "style": "2D NES sprite",
+        "colors": ["brown", "gold", "red"],
+        "size": "Medium (24x24 pixels, larger wingspan)",
+        "special_features": "Eyes glow red during scanning, wings have pixelated radar patterns"
+      },
+      "combat_style": "Sasuke Style - Aerial Combat",
+      "pentesting_abilities": {
+        "primary": "High-Altitude Reconnaissance",
+        "secondary": "Wireless Network Scanning",
+        "ultimate": "Eagle Eye: Full Network Mapping",
+        "passive": "OSINT Gathering"
+      },
+      "jutsu_list": [
+        {
+          "name": "Aerial View: Subnet Mapping",
+          "type": "Reconnaissance",
+          "description": "Flies high to map entire network topology",
+          "chakra_cost": "Medium",
+          "pentesting_equivalent": "Network Discovery"
+        },
+        {
+          "name": "Talon Strike: WiFi Deauth",
+          "type": "Offensive",
+          "description": "Precise strikes that disconnect wireless clients",
+          "chakra_cost": "Low",
+          "pentesting_equivalent": "Deauthentication Attack"
+        },
+        {
+          "name": "Wind Style: OSINT Storm",
+          "type": "Information Gathering",
+          "description": "Gathers publicly available intelligence at incredible speed",
+          "chakra_cost": "Low",
+          "pentesting_equivalent": "OSINT Collection"
+        }
+      ],
+      "stats": {
+        "health": 600,
+        "chakra": 750,
+        "attack": 80,
+        "defense": 55,
+        "speed": 98,
+        "intelligence": 88
+      }
+    },
+    "dog_tracker": {
+      "name": "Pakkun the Exploit Hound",
+      "animal_type": "Dog/Hound",
+      "rank": "B-Rank",
+      "description": "A small ninja dog with a keen nose for vulnerabilities. Wears a pixel-art bandana and tracks exploits.",
+      "appearance": {
+        "style": "2D NES sprite",
+        "colors": ["brown", "black", "red"],
+        "size": "Small (16x16 pixels)",
+        "special_features": "Red nose that glows when finding vulnerabilities, wears a leaf village bandana"
+      },
+      "combat_style": "Kakashi Style - Tracker",
+      "pentesting_abilities": {
+        "primary": "Vulnerability Tracking",
+        "secondary": "Exploit Search",
+        "ultimate": "Pack Tactics: Multi-Vector Attack",
+        "passive": "CVE Detection"
+      },
+      "jutsu_list": [
+        {
+          "name": "Scent Tracking: Vulnerability Scan",
+          "type": "Reconnaissance",
+          "description": "Sniffs out system weaknesses and known CVEs",
+          "chakra_cost": "Low",
+          "pentesting_equivalent": "Vulnerability Scanning"
+        },
+        {
+          "name": "Pack Summoning: Exploit-DB",
+          "type": "Support",
+          "description": "Summons a pack of dogs carrying various exploits",
+          "chakra_cost": "Medium",
+          "pentesting_equivalent": "Exploit Database Search"
+        },
+        {
+          "name": "Bite: Privilege Escalation",
+          "type": "Offensive",
+          "description": "Quick bite that elevates system privileges",
+          "chakra_cost": "Medium",
+          "pentesting_equivalent": "Privilege Escalation"
+        }
+      ],
+      "stats": {
+        "health": 500,
+        "chakra": 600,
+        "attack": 70,
+        "defense": 60,
+        "speed": 85,
+        "intelligence": 80
+      }
+    },
+    "monkey_king": {
+      "name": "Enma the Firewall Guardian",
+      "animal_type": "Monkey",
+      "rank": "S-Rank",
+      "description": "A wise white-furred monkey who can transform into an adamantine firewall. Defensive specialist.",
+      "appearance": {
+        "style": "2D NES sprite",
+        "colors": ["white", "gold", "brown"],
+        "size": "Large (32x32 pixels)",
+        "special_features": "Golden staff that displays firewall rules, wise beard made of pixels"
+      },
+      "combat_style": "Hiruzen Style - Defensive",
+      "pentesting_abilities": {
+        "primary": "Firewall Configuration",
+        "secondary": "Access Control",
+        "ultimate": "Adamantine Prison: DMZ Creation",
+        "passive": "Intrusion Prevention"
+      },
+      "jutsu_list": [
+        {
+          "name": "Transformation: Adamantine Firewall",
+          "type": "Defensive",
+          "description": "Transforms into an impenetrable firewall",
+          "chakra_cost": "High",
+          "pentesting_equivalent": "Firewall Hardening"
+        },
+        {
+          "name": "Staff Strike: Rule Enforcement",
+          "type": "Defensive",
+          "description": "Enforces strict access control rules",
+          "chakra_cost": "Medium",
+          "pentesting_equivalent": "Access Control Lists"
+        },
+        {
+          "name": "Clone Army: IPS Deployment",
+          "type": "Defensive",
+          "description": "Creates clones that detect and prevent intrusions",
+          "chakra_cost": "High",
+          "pentesting_equivalent": "Intrusion Prevention System"
+        }
+      ],
+      "stats": {
+        "health": 850,
+        "chakra": 900,
+        "attack": 75,
+        "defense": 95,
+        "speed": 70,
+        "intelligence": 94
+      }
+    },
+    "chameleon_ghost": {
+      "name": "Phantom the Stealth Chameleon",
+      "animal_type": "Chameleon",
+      "rank": "A-Rank",
+      "description": "A pixel-art chameleon that changes colors to blend with network traffic. Master of stealth and obfuscation.",
+      "appearance": {
+        "style": "2D NES sprite",
+        "colors": ["shifting palette", "transparent pixels"],
+        "size": "Medium (20x20 pixels)",
+        "special_features": "Constantly shifts colors, leaves no pixel trail, eyes rotate independently"
+      },
+      "combat_style": "Stealth Assassination",
+      "pentesting_abilities": {
+        "primary": "Traffic Obfuscation",
+        "secondary": "Stealth Scanning",
+        "ultimate": "Invisible Network: Complete Evasion",
+        "passive": "Anti-Detection"
+      },
+      "jutsu_list": [
+        {
+          "name": "Chameleon Blend: Traffic Masking",
+          "type": "Evasion",
+          "description": "Blends malicious traffic with legitimate packets",
+          "chakra_cost": "Medium",
+          "pentesting_equivalent": "Traffic Obfuscation"
+        },
+        {
+          "name": "Color Change: Protocol Shifting",
+          "type": "Evasion",
+          "description": "Changes protocols to avoid detection",
+          "chakra_cost": "Low",
+          "pentesting_equivalent": "Protocol Manipulation"
+        },
+        {
+          "name": "Invisible Jutsu: Zero-Day Exploit",
+          "type": "Offensive",
+          "description": "Uses unknown vulnerabilities that can't be detected",
+          "chakra_cost": "Very High",
+          "pentesting_equivalent": "Zero-Day Exploitation"
+        }
+      ],
+      "stats": {
+        "health": 550,
+        "chakra": 800,
+        "attack": 85,
+        "defense": 50,
+        "speed": 92,
+        "intelligence": 90
+      }
+    },
+    "spider_webmaster": {
+      "name": "Arachnia the Web Crawler",
+      "animal_type": "Spider",
+      "rank": "B-Rank",
+      "description": "A red and black spider that weaves webs of interconnected systems. Specialist in web application testing.",
+      "appearance": {
+        "style": "2D NES sprite",
+        "colors": ["red", "black", "white"],
+        "size": "Medium (20x20 pixels)",
+        "special_features": "Spins pixelated webs that look like network diagrams, multiple eyes glow green"
+      },
+      "combat_style": "Web Trapping",
+      "pentesting_abilities": {
+        "primary": "Web Application Scanning",
+        "secondary": "XSS Injection",
+        "ultimate": "Spider's Den: Full Site Compromise",
+        "passive": "Web Crawling"
+      },
+      "jutsu_list": [
+        {
+          "name": "Web Spinning: Site Crawler",
+          "type": "Reconnaissance",
+          "description": "Maps entire web application structure",
+          "chakra_cost": "Medium",
+          "pentesting_equivalent": "Web Crawling"
+        },
+        {
+          "name": "Venom Bite: XSS Injection",
+          "type": "Offensive",
+          "description": "Injects malicious scripts into web pages",
+          "chakra_cost": "Medium",
+          "pentesting_equivalent": "Cross-Site Scripting"
+        },
+        {
+          "name": "Spider Thread: Session Hijacking",
+          "type": "Offensive",
+          "description": "Captures and uses user sessions",
+          "chakra_cost": "High",
+          "pentesting_equivalent": "Session Hijacking"
+        }
+      ],
+      "stats": {
+        "health": 550,
+        "chakra": 700,
+        "attack": 75,
+        "defense": 55,
+        "speed": 80,
+        "intelligence": 87
+      }
+    },
+    "panda_bruteforce": {
+      "name": "Taichi the Password Panda",
+      "animal_type": "Panda",
+      "rank": "B-Rank",
+      "description": "A chunky black and white panda with incredible patience and strength. Master of brute force techniques.",
+      "appearance": {
+        "style": "2D NES sprite",
+        "colors": ["black", "white", "green"],
+        "size": "Large (28x28 pixels)",
+        "special_features": "Wears pixel bamboo armor, carries a scroll of password lists"
+      },
+      "combat_style": "Taijutsu / Brute Strength",
+      "pentesting_abilities": {
+        "primary": "Password Cracking",
+        "secondary": "Brute Force Attack",
+        "ultimate": "Bamboo Forest: Distributed Cracking",
+        "passive": "Hash Analysis"
+      },
+      "jutsu_list": [
+        {
+          "name": "Thousand Palm Strike: Brute Force",
+          "type": "Offensive",
+          "description": "Tries thousands of password combinations rapidly",
+          "chakra_cost": "High",
+          "pentesting_equivalent": "Brute Force Attack"
+        },
+        {
+          "name": "Bamboo Style: Dictionary Attack",
+          "type": "Offensive",
+          "description": "Uses wordlists to crack credentials",
+          "chakra_cost": "Medium",
+          "pentesting_equivalent": "Dictionary Attack"
+        },
+        {
+          "name": "Meditation: Rainbow Table",
+          "type": "Support",
+          "description": "Pre-computes hash values for instant cracking",
+          "chakra_cost": "Very High",
+          "pentesting_equivalent": "Rainbow Table Attack"
+        }
+      ],
+      "stats": {
+        "health": 800,
+        "chakra": 650,
+        "attack": 85,
+        "defense": 75,
+        "speed": 50,
+        "intelligence": 75
+      }
+    },
+    "fox_social_engineer": {
+      "name": "Kurama the Nine-Tailed Phisher",
+      "animal_type": "Fox",
+      "rank": "S-Rank (Bijuu Level)",
+      "description": "A magnificent orange fox with nine tails made of fiber optic cables. Master of deception and social engineering.",
+      "appearance": {
+        "style": "2D NES sprite (Extra Large Boss Sprite)",
+        "colors": ["orange", "red", "gold", "black"],
+        "size": "Massive (64x64 pixels)",
+        "special_features": "Nine tails glow with data streams, red eyes hypnotize targets, intimidating chakra aura"
+      },
+      "combat_style": "Naruto Style - Tailed Beast Mode",
+      "pentesting_abilities": {
+        "primary": "Social Engineering",
+        "secondary": "Phishing Campaigns",
+        "ultimate": "Tailed Beast Bomb: APT Deployment",
+        "passive": "Psychological Manipulation"
+      },
+      "jutsu_list": [
+        {
+          "name": "Nine-Tails Chakra: Phishing Email Blast",
+          "type": "Social Engineering",
+          "description": "Sends convincing phishing emails to multiple targets",
+          "chakra_cost": "Medium",
+          "pentesting_equivalent": "Phishing Campaign"
+        },
+        {
+          "name": "Tailed Beast Bomb: APT Payload",
+          "type": "Offensive",
+          "description": "Deploys advanced persistent threat",
+          "chakra_cost": "Massive",
+          "pentesting_equivalent": "APT Deployment"
+        },
+        {
+          "name": "Kurama Mode: Human Engineering",
+          "type": "Social Engineering",
+          "description": "Direct manipulation of human targets through charm and deception",
+          "chakra_cost": "High",
+          "pentesting_equivalent": "Social Engineering"
+        },
+        {
+          "name": "Fox Fire: Ransomware",
+          "type": "Offensive",
+          "description": "Encrypts all target systems with blazing speed",
+          "chakra_cost": "Very High",
+          "pentesting_equivalent": "Ransomware Attack"
+        }
+      ],
+      "stats": {
+        "health": 9999,
+        "chakra": 9999,
+        "attack": 99,
+        "defense": 90,
+        "speed": 95,
+        "intelligence": 96
+      }
+    },
+    "owl_cryptographer": {
+      "name": "Athena the Cipher Owl",
+      "animal_type": "Owl",
+      "rank": "A-Rank",
+      "description": "A wise purple owl with eyes that see through encryption. Master of cryptography and code breaking.",
+      "appearance": {
+        "style": "2D NES sprite",
+        "colors": ["purple", "blue", "gold"],
+        "size": "Medium (24x24 pixels)",
+        "special_features": "Eyes display rotating cipher wheels, feathers inscribed with encryption formulas"
+      },
+      "combat_style": "Genjutsu / Mind Arts",
+      "pentesting_abilities": {
+        "primary": "Cryptanalysis",
+        "secondary": "Encryption Breaking",
+        "ultimate": "All-Seeing Eye: Master Decryption",
+        "passive": "Hash Identification"
+      },
+      "jutsu_list": [
+        {
+          "name": "Wise Gaze: Hash Cracking",
+          "type": "Offensive",
+          "description": "Analyzes and cracks encrypted hashes",
+          "chakra_cost": "High",
+          "pentesting_equivalent": "Hash Cracking"
+        },
+        {
+          "name": "Silent Flight: Encrypted C2",
+          "type": "Support",
+          "description": "Establishes encrypted command and control channel",
+          "chakra_cost": "Medium",
+          "pentesting_equivalent": "Encrypted C2 Channel"
+        },
+        {
+          "name": "Feather Dance: Cipher Analysis",
+          "type": "Support",
+          "description": "Identifies and breaks weak encryption",
+          "chakra_cost": "Medium",
+          "pentesting_equivalent": "Cryptanalysis"
+        }
+      ],
+      "stats": {
+        "health": 600,
+        "chakra": 900,
+        "attack": 65,
+        "defense": 60,
+        "speed": 75,
+        "intelligence": 99
+      }
+    },
+    "rhino_dos": {
+      "name": "Titan the Denial Rhino",
+      "animal_type": "Rhinoceros",
+      "rank": "A-Rank",
+      "description": "A massive gray rhino with horn made of compressed data. Specialist in overwhelming system resources.",
+      "appearance": {
+        "style": "2D NES sprite",
+        "colors": ["gray", "black", "red"],
+        "size": "Large (32x28 pixels)",
+        "special_features": "Horn glows red during attacks, leaves crater pixels, thick armored hide"
+      },
+      "combat_style": "Heavy Assault / Taijutsu",
+      "pentesting_abilities": {
+        "primary": "Denial of Service",
+        "secondary": "Resource Exhaustion",
+        "ultimate": "Stampede: DDoS Swarm",
+        "passive": "Traffic Amplification"
+      },
+      "jutsu_list": [
+        {
+          "name": "Horn Charge: SYN Flood",
+          "type": "Offensive",
+          "description": "Floods target with connection requests",
+          "chakra_cost": "High",
+          "pentesting_equivalent": "SYN Flood Attack"
+        },
+        {
+          "name": "Stampede Summoning: DDoS",
+          "type": "Offensive",
+          "description": "Summons herd of rhinos for distributed attack",
+          "chakra_cost": "Very High",
+          "pentesting_equivalent": "DDoS Attack"
+        },
+        {
+          "name": "Earthshaking Stomp: Resource Exhaustion",
+          "type": "Offensive",
+          "description": "Drains all system resources",
+          "chakra_cost": "High",
+          "pentesting_equivalent": "Resource Exhaustion"
+        }
+      ],
+      "stats": {
+        "health": 950,
+        "chakra": 700,
+        "attack": 95,
+        "defense": 90,
+        "speed": 45,
+        "intelligence": 60
+      }
+    },
+    "octopus_multitask": {
+      "name": "Kraken the Eight-Port Octopus",
+      "animal_type": "Octopus",
+      "rank": "A-Rank",
+      "description": "A purple octopus with eight tentacles that can attack multiple targets simultaneously. Multi-threading expert.",
+      "appearance": {
+        "style": "2D NES sprite",
+        "colors": ["purple", "blue", "cyan"],
+        "size": "Large (32x32 pixels with extended tentacles)",
+        "special_features": "Each tentacle has a different tool symbol, ink clouds are pixel storms"
+      },
+      "combat_style": "Killer Bee Style - Multi-Weapon",
+      "pentesting_abilities": {
+        "primary": "Parallel Exploitation",
+        "secondary": "Multi-Vector Attack",
+        "ultimate": "Ink Cloud: Complete Network Takeover",
+        "passive": "Simultaneous Scanning"
+      },
+      "jutsu_list": [
+        {
+          "name": "Eight Tentacles: Parallel Scan",
+          "type": "Reconnaissance",
+          "description": "Scans eight different targets simultaneously",
+          "chakra_cost": "Medium",
+          "pentesting_equivalent": "Multi-threaded Scanning"
+        },
+        {
+          "name": "Constriction: Persistent Backdoor",
+          "type": "Offensive",
+          "description": "Maintains persistent access across multiple systems",
+          "chakra_cost": "High",
+          "pentesting_equivalent": "Backdoor Installation"
+        },
+        {
+          "name": "Ink Cloud: Traffic Confusion",
+          "type": "Evasion",
+          "description": "Creates chaotic traffic to hide malicious activity",
+          "chakra_cost": "Medium",
+          "pentesting_equivalent": "Traffic Obfuscation"
+        }
+      ],
+      "stats": {
+        "health": 750,
+        "chakra": 850,
+        "attack": 80,
+        "defense": 70,
+        "speed": 85,
+        "intelligence": 91
+      }
+    }
+  }
+}
