@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>🎮 Cyber Defense Demo</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Courier New', monospace;
+            background: #0a0e27;
+            color: #e0e0e0;
+            padding: 10px;
+        }
+        header {
+            text-align: center;
+            padding: 20px 0;
+            border-bottom: 2px solid #00ff41;
+            margin-bottom: 20px;
+        }
+        h1 {
+            color: #00ff41;
+            font-size: 1.5em;
+            text-shadow: 0 0 10px #00ff41;
+        }
+        .subtitle {
+            color: #00d4ff;
+            font-size: 0.9em;
+            margin-top: 5px;
+        }
+        .controls {
+            background: #16213e;
+            border: 2px solid #00ff4144;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+        select, button {
+            width: 100%;
+            padding: 14px;
+            margin: 10px 0;
+            font-family: 'Courier New', monospace;
+            font-size: 16px;
+            border-radius: 4px;
+        }
+        select {
+            background: #1a2744;
+            color: #e0e0e0;
+            border: 2px solid #00ff4144;
+        }
+        button {
+            background: #00ff41;
+            color: #0a0e27;
+            border: none;
+            font-weight: bold;
+            cursor: pointer;
+            min-height: 48px;
+        }
+        button:active {
+            transform: scale(0.98);
+            opacity: 0.9;
+        }
+        #game {
+            background: #16213e;
+            border: 2px solid #00ff41;
+            border-radius: 8px;
+            min-height: 300px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        #narration {
+            background: #16213e;
+            border: 2px solid #00d4ff;
+            border-radius: 8px;
+            padding: 15px;
+            min-height: 100px;
+        }
+        #narration h3 {
+            color: #00d4ff;
+            margin-bottom: 10px;
+        }
+        .msg {
+            margin: 5px 0;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>🎮 Cyber Defense Viz</h1>
+        <p class="subtitle">Mobile Demo - Tap to see attacks!</p>
+    </header>
+
+    <div class="controls">
+        <select id="demo">
+            <option value="">Select an attack demo...</option>
+            <option value="priv">🪜 Privilege Escalation</option>
+            <option value="lateral">🐍 Lateral Movement</option>
+            <option value="creds">🔑 Credential Theft</option>
+            <option value="exfil">📤 Data Exfiltration</option>
+        </select>
+        <button onclick="playDemo()">▶ Play Demo</button>
+    </div>
+
+    <div id="game">
+        <div style="text-align:center; padding:20px;">
+            <p>🎬 Select a demo above</p>
+            <p style="margin-top:10px; font-size:0.9em; color:#00d4ff;">
+                Retro 2D attack visualizations<br>
+                Educational cybersecurity tool
+            </p>
+        </div>
+    </div>
+
+    <div id="narration">
+        <h3>📖 What's Happening</h3>
+        <div id="msgs">
+            <p class="msg">👆 Select a demo to start learning!</p>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/phaser@3.60.0/dist/phaser.min.js"></script>
+    <script>
+        let game;
+
+        const demos = {
+            priv: {
+                title: 'Privilege Escalation',
+                steps: [
+                    '🔒 Attacker has low-level user access',
+                    '🔍 Scanning for privilege escalation vulnerabilities',
+                    '🪜 Exploiting system misconfiguration',
+                    '⬆️  Escalating privileges...',
+                    '👑 Root access obtained!',
+                    '✅ Attacker now has full system control'
+                ]
+            },
+            lateral: {
+                title: 'Lateral Movement',
+                steps: [
+                    '🖥️  Starting from compromised Server 1',
+                    '🔍 Scanning internal network',
+                    '🐍 Using stolen credentials',
+                    '➡️  Moving to Server 2...',
+                    '🔴 Server 2 compromised!',
+                    '➡️  Spreading to Server 3...',
+                    '🔴 Server 3 compromised!',
+                    '⚠️  Entire network owned by attacker'
+                ]
+            },
+            creds: {
+                title: 'Credential Theft',
+                steps: [
+                    '🔑 Searching for credentials in memory',
+                    '💾 Dumping LSASS process',
+                    '🔓 Found password hash #1',
+                    '🔓 Found password hash #2',
+                    '🎟️  Stealing access tokens',
+                    '✅ All credentials stolen!',
+                    '⚠️  Attacker can now impersonate users'
+                ]
+            },
+            exfil: {
+                title: 'Data Exfiltration',
+                steps: [
+                    '💾 Accessing internal database',
+                    '🔍 Locating sensitive data',
+                    '📦 Compressing data for transfer',
+                    '📤 Establishing connection to C2 server',
+                    '⬆️  Uploading data... (25%)',
+                    '⬆️  Uploading data... (50%)',
+                    '⬆️  Uploading data... (75%)',
+                    '✅ Data exfiltration complete!',
+                    '🚨 Sensitive data stolen'
+                ]
+            }
+        };
+
+        function playDemo() {
+            const sel = document.getElementById('demo').value;
+            if (!sel) {
+                alert('Please select a demo first!');
+                return;
+            }
+
+            const demo = demos[sel];
+            const msgs = document.getElementById('msgs');
+            const gameDiv = document.getElementById('game');
+
+            // Clear previous
+            msgs.innerHTML = `<p class="msg" style="color:#00ff41;">🎬 ${demo.title}</p>`;
+            gameDiv.innerHTML = '<div style="text-align:center; padding:40px; color:#00ff41; font-size:1.2em;">▶ PLAYING...</div>';
+
+            // Animate steps
+            demo.steps.forEach((step, i) => {
+                setTimeout(() => {
+                    const p = document.createElement('p');
+                    p.className = 'msg';
+                    p.textContent = step;
+                    msgs.appendChild(p);
+                    msgs.scrollTop = msgs.scrollHeight;
+
+                    // Update game visual
+                    if (i === demo.steps.length - 1) {
+                        gameDiv.innerHTML = `
+                            <div style="text-align:center; padding:40px;">
+                                <div style="font-size:3em;">✅</div>
+                                <div style="color:#00ff41; margin-top:10px;">COMPLETE</div>
+                            </div>
+                        `;
+                    }
+                }, i * 1500);
+            });
+        }
+
+        // Simple visual representation
+        window.addEventListener('load', () => {
+            console.log('🎮 Cyber Defense Visualization Demo loaded');
+        });
+    </script>
+</body>
+</html>
