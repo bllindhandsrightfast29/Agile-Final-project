@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="theme-color" content="#0a0e27">
+    <title>🎮 Cyber Defense Demo</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/phaser@3.60.0/dist/phaser.min.js"></script>
+</head>
+<body>
+    <div id="app">
+        <header>
+            <h1>🎮 Cyber Defense Viz</h1>
+            <p class="subtitle">Mobile Demo - Offline Mode</p>
+        </header>
+
+        <div class="control-panel">
+            <div class="panel-section">
+                <h3>🎞️ Demo Scenarios</h3>
+                <select id="demo-select">
+                    <option value="">Select a demo...</option>
+                    <option value="privilege-escalation">🪜 Privilege Escalation</option>
+                    <option value="lateral-movement">🐍 Lateral Movement</option>
+                    <option value="credential-theft">🔑 Credential Theft</option>
+                    <option value="data-exfil">📤 Data Exfiltration</option>
+                </select>
+                <button id="play-btn" class="btn btn-primary">▶ Play Demo</button>
+            </div>
+        </div>
+
+        <div id="game-container"></div>
+
+        <div id="narration-panel">
+            <h3>📖 What's Happening</h3>
+            <div id="narration-content">
+                <p class="placeholder">Select a demo to see attack visualization...</p>
+            </div>
+        </div>
+
+        <div id="info-panel">
+            <h3>ℹ️ About</h3>
+            <div id="info-content">
+                <p>This is a mobile demo of the Cyber Defense Visualization System.</p>
+                <p>Watch cyber attacks visualized as retro 2D animations!</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="game/config.js"></script>
+    <script src="game/sprites.js"></script>
+    <script src="game/scenes.js"></script>
+    <script src="game/engine.js"></script>
+
+    <script>
+        // Simplified mobile demo logic
+        let game;
+
+        document.addEventListener('DOMContentLoaded', () => {
+            // Initialize game
+            game = window.gameEngine.initGame();
+
+            // Set up demo button
+            document.getElementById('play-btn').addEventListener('click', playDemo);
+        });
+
+        function playDemo() {
+            const select = document.getElementById('demo-select');
+            const demoId = select.value;
+
+            if (!demoId) {
+                alert('Please select a demo first!');
+                return;
+            }
+
+            const demos = {
+                'privilege-escalation': createPrivEscDemo(),
+                'lateral-movement': createLateralMoveDemo(),
+                'credential-theft': createCredTheftDemo(),
+                'data-exfil': createDataExfilDemo()
+            };
+
+            const demo = demos[demoId];
+            if (demo) {
+                window.gameEngine.playVisualization(demo);
+            }
+        }
+
+        function createPrivEscDemo() {
+            return {
+                scene: {
+                    type: "system",
+                    background: "permission_hierarchy",
+                    duration: 8.0,
+                    elements: [
+                        {
+                            type: "sprite",
+                            asset: "user_low_privilege",
+                            position: { x: 300, y: 450 },
+                            animation: "idle",
+                            duration: 2.0
+                        },
+                        {
+                            type: "sprite",
+                            asset: "ladder",
+                            position: { x: 300, y: 300 },
+                            animation: "appear",
+                            duration: 6.0,
+                            metadata: { delay: 1.0 }
+                        },
+                        {
+                            type: "sprite",
+                            asset: "user_climbing",
+                            position: { x: 300, y: 300 },
+                            animation: "climb",
+                            duration: 3.0,
+                            metadata: { delay: 2.0 }
+                        },
+                        {
+                            type: "sprite",
+                            asset: "crown",
+                            position: { x: 300, y: 150 },
+                            animation: "shine",
+                            duration: 2.0,
+                            metadata: { delay: 5.0 }
+                        }
+                    ],
+                    narration_points: [
+                        { time: 0, text: "🔒 Attacker has low privileges" },
+                        { time: 2, text: "🪜 Exploiting system vulnerability" },
+                        { time: 5, text: "👑 Root access obtained!" }
+                    ]
+                }
+            };
+        }
+
+        function createLateralMoveDemo() {
+            return {
+                scene: {
+                    type: "network",
+                    background: "network_grid",
+                    duration: 10.0,
+                    elements: [
+                        {
+                            type: "sprite",
+                            asset: "server",
+                            position: { x: 200, y: 300 },
+                            animation: "idle",
+                            duration: 10.0
+                        },
+                        {
+                            type: "sprite",
+                            asset: "server",
+                            position: { x: 400, y: 300 },
+                            animation: "idle",
+                            duration: 10.0
+                        },
+                        {
+                            type: "sprite",
+                            asset: "server",
+                            position: { x: 600, y: 300 },
+                            animation: "idle",
+                            duration: 10.0
+                        },
+                        {
+                            type: "sprite",
+                            asset: "attacker_pacman",
+                            position: { x: 200, y: 300 },
+                            animation: "move_path",
+                            duration: 8.0,
+                            metadata: {
+                                path: [
+                                    { x: 200, y: 300 },
+                                    { x: 400, y: 300 },
+                                    { x: 600, y: 300 }
+                                ]
+                            }
+                        }
+                    ],
+                    narration_points: [
+                        { time: 0, text: "🖥️ Starting from compromised server" },
+                        { time: 3, text: "🔴 Moving to second server" },
+                        { time: 6, text: "🔴 Third server compromised!" }
+                    ]
+                }
+            };
+        }
+
+        function createCredTheftDemo() {
+            return {
+                scene: {
+                    type: "system",
+                    background: "cyber_grid",
+                    duration: 7.0,
+                    elements: [
+                        {
+                            type: "sprite",
+                            asset: "key",
+                            position: { x: 200, y: 200 },
+                            animation: "float",
+                            duration: 7.0
+                        },
+                        {
+                            type: "sprite",
+                            asset: "key",
+                            position: { x: 400, y: 250 },
+                            animation: "float",
+                            duration: 7.0
+                        },
+                        {
+                            type: "sprite",
+                            asset: "key",
+                            position: { x: 600, y: 200 },
+                            animation: "float",
+                            duration: 7.0
+                        },
+                        {
+                            type: "sprite",
+                            asset: "attacker_pacman",
+                            position: { x: 100, y: 200 },
+                            animation: "move_path",
+                            duration: 6.0,
+                            metadata: {
+                                path: [
+                                    { x: 200, y: 200 },
+                                    { x: 400, y: 250 },
+                                    { x: 600, y: 200 }
+                                ]
+                            }
+                        }
+                    ],
+                    narration_points: [
+                        { time: 0, text: "🔑 Scanning for credentials" },
+                        { time: 2, text: "💾 Dumping from memory" },
+                        { time: 5, text: "✅ Credentials stolen!" }
+                    ]
+                }
+            };
+        }
+
+        function createDataExfilDemo() {
+            return {
+                scene: {
+                    type: "network",
+                    background: "network_diagram",
+                    duration: 8.0,
+                    elements: [
+                        {
+                            type: "sprite",
+                            asset: "database",
+                            position: { x: 150, y: 300 },
+                            animation: "idle",
+                            duration: 8.0
+                        },
+                        {
+                            type: "sprite",
+                            asset: "server",
+                            position: { x: 650, y: 300 },
+                            animation: "idle",
+                            duration: 8.0
+                        },
+                        {
+                            type: "sprite",
+                            asset: "data_packet",
+                            position: { x: 150, y: 300 },
+                            animation: "move_to",
+                            duration: 2.0,
+                            metadata: { target: { x: 650, y: 300 } }
+                        },
+                        {
+                            type: "sprite",
+                            asset: "data_packet",
+                            position: { x: 150, y: 300 },
+                            animation: "move_to",
+                            duration: 2.0,
+                            metadata: { target: { x: 650, y: 300 }, delay: 2.0 }
+                        }
+                    ],
+                    narration_points: [
+                        { time: 0, text: "💾 Accessing database" },
+                        { time: 2, text: "📤 Exfiltrating data" },
+                        { time: 5, text: "🚨 Data stolen!" }
+                    ]
+                }
+            };
+        }
+    </script>
+</body>
+</html>

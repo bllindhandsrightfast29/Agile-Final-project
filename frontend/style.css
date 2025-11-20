@@ -315,18 +315,166 @@ footer a:hover {
     }
 }
 
-/* Responsive */
+/* Mobile Optimizations */
 @media (max-width: 768px) {
+    body {
+        font-size: 14px;
+    }
+
+    #app {
+        padding: 10px;
+    }
+
+    header {
+        padding: 15px 0;
+        margin-bottom: 15px;
+    }
+
     header h1 {
-        font-size: 1.8em;
+        font-size: 1.5em;
+        letter-spacing: 1px;
+    }
+
+    .subtitle {
+        font-size: 0.9em;
+        padding: 0 10px;
     }
 
     .control-panel {
         grid-template-columns: 1fr;
+        gap: 15px;
+        margin-bottom: 15px;
+    }
+
+    .panel-section {
+        padding: 15px;
+    }
+
+    .panel-section h3 {
+        font-size: 1em;
+    }
+
+    select, .btn {
+        padding: 14px;
+        font-size: 16px; /* Prevents zoom on iOS */
+        -webkit-appearance: none;
+        appearance: none;
+    }
+
+    .btn {
+        min-height: 48px; /* Touch-friendly size */
+        font-size: 16px;
     }
 
     #game-container {
-        min-height: 400px;
+        min-height: 300px;
+        max-height: 400px;
+        border: 2px solid var(--primary);
+        margin-bottom: 15px;
+    }
+
+    #narration-panel,
+    #info-panel {
+        padding: 15px;
+        margin-bottom: 15px;
+    }
+
+    #narration-panel h3,
+    #info-panel h3 {
+        font-size: 1em;
+    }
+
+    #narration-content,
+    #info-content {
+        padding: 12px;
+        min-height: 100px;
+        font-size: 0.9em;
+    }
+
+    .technique-title {
+        font-size: 1.1em;
+    }
+
+    .tactic-badge {
+        font-size: 0.75em;
+        padding: 4px 10px;
+    }
+
+    footer {
+        padding: 20px 10px;
+        font-size: 0.85em;
+    }
+}
+
+/* Small mobile devices */
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 1.2em;
+    }
+
+    .subtitle {
+        font-size: 0.8em;
+    }
+
+    #app {
+        padding: 5px;
+    }
+
+    .panel-section {
+        padding: 12px;
+    }
+
+    #game-container {
+        min-height: 250px;
+        max-height: 350px;
+    }
+
+    .btn {
+        padding: 12px;
+        font-size: 15px;
+    }
+}
+
+/* Landscape mobile */
+@media (max-width: 768px) and (orientation: landscape) {
+    #game-container {
+        min-height: 200px;
+        max-height: 300px;
+    }
+
+    .control-panel {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Touch-friendly interactions */
+@media (hover: none) and (pointer: coarse) {
+    .btn {
+        min-height: 48px;
+        font-size: 16px;
+    }
+
+    select {
+        min-height: 48px;
+        font-size: 16px;
+    }
+
+    /* Remove hover effects on touch devices */
+    .btn-primary:hover,
+    .btn-secondary:hover {
+        background: var(--primary);
+        color: var(--bg-dark);
+        box-shadow: none;
+    }
+
+    .btn-secondary:hover {
+        background: var(--secondary);
+    }
+
+    /* Active state for touch feedback */
+    .btn:active {
+        transform: scale(0.98);
+        opacity: 0.9;
     }
 }
 

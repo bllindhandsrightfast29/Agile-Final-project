@@ -13,6 +13,22 @@ const GAME_CONFIG = {
     parent: 'game-container',
     backgroundColor: '#0a0e27',
 
+    // Mobile-responsive scaling
+    scale: {
+        mode: Phaser.Scale.FIT,
+        autoCenter: Phaser.Scale.CENTER_BOTH,
+        width: 800,
+        height: 600,
+        min: {
+            width: 320,
+            height: 240
+        },
+        max: {
+            width: 1920,
+            height: 1080
+        }
+    },
+
     // Physics (optional for some visualizations)
     physics: {
         default: 'arcade',
