@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎮 Cyber Defense Visualization System</title>
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Phaser.js for 2D game engine -->
+    <script src="https://cdn.jsdelivr.net/npm/phaser@3.60.0/dist/phaser.min.js"></script>
+</head>
+<body>
+    <div id="app">
+        <!-- Header -->
+        <header>
+            <h1>🎮 Cyber Defense Visualization System</h1>
+            <p class="subtitle">Khan Academy meets Cybersecurity - Watch attacks unfold in retro 2D style</p>
+        </header>
+
+        <!-- Control Panel -->
+        <div class="control-panel">
+            <div class="panel-section">
+                <h3>🎬 Attack Simulator</h3>
+                <select id="technique-select">
+                    <option value="">Loading techniques...</option>
+                </select>
+                <button id="simulate-btn" class="btn btn-primary">▶ Simulate Attack</button>
+            </div>
+
+            <div class="panel-section">
+                <h3>🎞️ Scenarios</h3>
+                <select id="scenario-select">
+                    <option value="">Select a scenario...</option>
+                    <option value="privilege-escalation">🪜 Privilege Escalation Demo</option>
+                    <option value="lateral-movement">🐍 Lateral Movement Demo</option>
+                    <option value="credential-theft">🔑 Credential Theft Demo</option>
+                    <option value="data-exfil">📤 Data Exfiltration Demo</option>
+                </select>
+                <button id="play-scenario-btn" class="btn btn-secondary">▶ Play Scenario</button>
+            </div>
+
+            <div class="panel-section">
+                <h3>📊 Status</h3>
+                <div id="connection-status" class="status disconnected">
+                    ⚠ Disconnected
+                </div>
+                <div id="techniques-loaded" class="info-text">
+                    Techniques loaded: <span id="technique-count">0</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main visualization area -->
+        <div id="game-container">
+            <!-- Phaser game will render here -->
+        </div>
+
+        <!-- Narration panel -->
+        <div id="narration-panel">
+            <h3>📖 Narration</h3>
+            <div id="narration-content">
+                <p class="placeholder">Select an attack to see the narration...</p>
+            </div>
+        </div>
+
+        <!-- Info panel -->
+        <div id="info-panel">
+            <h3>ℹ️ Technique Info</h3>
+            <div id="info-content">
+                <p class="placeholder">Attack visualization will appear above. Select a technique or scenario to begin!</p>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer>
+            <p>
+                Educational tool for cybersecurity training •
+                <a href="https://attack.mitre.org" target="_blank">MITRE ATT&CK Framework</a> •
+                Built with Phaser.js & FastAPI
+            </p>
+        </footer>
+    </div>
+
+    <!-- Load game engine -->
+    <script src="game/config.js"></script>
+    <script src="game/sprites.js"></script>
+    <script src="game/scenes.js"></script>
+    <script src="game/engine.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

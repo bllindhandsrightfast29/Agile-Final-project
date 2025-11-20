@@ -1,0 +1,44 @@
+{
+  "id": "ransomware_attack",
+  "name": "Ransomware Attack Simulation",
+  "description": "Modern ransomware attack showing encryption and extortion tactics",
+  "difficulty": "intermediate",
+  "duration_minutes": 3,
+  "steps": [
+    {
+      "technique_id": "T1566.002",
+      "name": "Spearphishing Link",
+      "delay": 0,
+      "description": "User clicks malicious link"
+    },
+    {
+      "technique_id": "T1204.002",
+      "name": "User Execution: Malicious File",
+      "delay": 2.0,
+      "description": "Ransomware payload executes"
+    },
+    {
+      "technique_id": "T1486",
+      "name": "Data Encrypted for Impact",
+      "delay": 2.0,
+      "description": "Files encrypted on system"
+    },
+    {
+      "technique_id": "T1490",
+      "name": "Inhibit System Recovery",
+      "delay": 2.0,
+      "description": "Delete shadow copies and backups"
+    },
+    {
+      "technique_id": "T1491.001",
+      "name": "Defacement: Internal",
+      "delay": 2.0,
+      "description": "Display ransom note"
+    }
+  ],
+  "learning_objectives": [
+    "Ransomware attack patterns",
+    "Importance of backups",
+    "User awareness training"
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "id": "container_escape",
+  "name": "Container Escape Attack",
+  "description": "Docker container breakout to host system - relevant for your Falco integration!",
+  "difficulty": "advanced",
+  "duration_minutes": 4,
+  "steps": [
+    {
+      "technique_id": "T1190",
+      "name": "Exploit Public-Facing Application",
+      "delay": 0,
+      "description": "Initial compromise of containerized app"
+    },
+    {
+      "technique_id": "T1611",
+      "name": "Escape to Host",
+      "delay": 2.0,
+      "description": "Break out of container to host"
+    },
+    {
+      "technique_id": "T1078.003",
+      "name": "Local Accounts",
+      "delay": 2.0,
+      "description": "Leverage host credentials"
+    },
+    {
+      "technique_id": "T1053.003",
+      "name": "Scheduled Task/Job: Cron",
+      "delay": 2.0,
+      "description": "Establish persistence on host"
+    },
+    {
+      "technique_id": "T1552.001",
+      "name": "Credentials in Files",
+      "delay": 2.0,
+      "description": "Search for sensitive files on host"
+    }
+  ],
+  "learning_objectives": [
+    "Container security risks",
+    "Importance of runtime security (Falco)",
+    "Least privilege for containers"
+  ],
+  "falco_detection": true,
+  "recommended_falco_rules": [
+    "Privileged container started",
+    "Terminal shell in container",
+    "Read sensitive file untrusted",
+    "Schedule Cron Jobs"
+  ]
+}

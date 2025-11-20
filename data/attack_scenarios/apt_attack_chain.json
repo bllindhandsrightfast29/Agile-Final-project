@@ -1,0 +1,56 @@
+{
+  "id": "apt_attack_chain",
+  "name": "APT Attack Chain",
+  "description": "Complete Advanced Persistent Threat attack simulation showing the full kill chain",
+  "difficulty": "advanced",
+  "duration_minutes": 5,
+  "steps": [
+    {
+      "technique_id": "T1566.001",
+      "name": "Spearphishing Attachment",
+      "delay": 0,
+      "description": "Initial access via phishing email"
+    },
+    {
+      "technique_id": "T1059.001",
+      "name": "PowerShell Execution",
+      "delay": 3.0,
+      "description": "Execute malicious PowerShell script"
+    },
+    {
+      "technique_id": "T1548.002",
+      "name": "Bypass User Account Control",
+      "delay": 2.0,
+      "description": "Escalate privileges"
+    },
+    {
+      "technique_id": "T1003.001",
+      "name": "LSASS Memory Dump",
+      "delay": 2.0,
+      "description": "Dump credentials from memory"
+    },
+    {
+      "technique_id": "T1021.002",
+      "name": "SMB/Windows Admin Shares",
+      "delay": 2.0,
+      "description": "Lateral movement to other systems"
+    },
+    {
+      "technique_id": "T1071.001",
+      "name": "Web Protocols C2",
+      "delay": 2.0,
+      "description": "Establish C2 communication"
+    },
+    {
+      "technique_id": "T1041",
+      "name": "Exfiltration Over C2",
+      "delay": 2.0,
+      "description": "Steal sensitive data"
+    }
+  ],
+  "learning_objectives": [
+    "Understanding the full attack lifecycle",
+    "Recognizing detection opportunities at each stage",
+    "Importance of defense in depth"
+  ]
+}

@@ -1,0 +1,77 @@
+version: '3.8'
+
+services:
+  # Backend FastAPI server
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile.backend
+    container_name: cyber-viz-backend
+    ports:
+      - "8000:8000"
+    environment:
+      - HOST=0.0.0.0
+      - PORT=8000
+      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY:-}
+      - FALCO_SOCKET_PATH=/var/run/falco.sock
+    volumes:
+      - ./backend:/app/backend
+      - ./data:/app/data
+      - /var/run/docker.sock:/var/run/docker.sock  # For Docker integration
+      # Uncomment if using Falco
+      # - /var/run/falco.sock:/var/run/falco.sock
+    restart: unless-stopped
+    networks:
+      - cyber-viz-network
+
+  # Frontend web server
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile.frontend
+    container_name: cyber-viz-frontend
+    ports:
+      - "3000:80"
+    volumes:
+      - ./frontend:/usr/share/nginx/html:ro
+    depends_on:
+      - backend
+    restart: unless-stopped
+    networks:
+      - cyber-viz-network
+
+  # Optional: Falco for real runtime security monitoring
+  # Uncomment to enable Falco integration
+  # falco:
+  #   image: falcosecurity/falco:latest
+  #   container_name: cyber-viz-falco
+  #   privileged: true
+  #   volumes:
+  #     - /var/run/docker.sock:/host/var/run/docker.sock
+  #     - /dev:/host/dev
+  #     - /proc:/host/proc:ro
+  #     - /boot:/host/boot:ro
+  #     - /lib/modules:/host/lib/modules:ro
+  #     - /usr:/host/usr:ro
+  #     - /etc:/host/etc:ro
+  #   networks:
+  #     - cyber-viz-network
+
+  # Optional: Red team container for testing
+  # This is an intentionally vulnerable container for practicing
+  red-team-target:
+    image: ubuntu:22.04
+    container_name: red-team-target
+    command: /bin/bash -c "apt-get update && apt-get install -y openssh-server && service ssh start && tail -f /dev/null"
+    ports:
+      - "2222:22"
+    networks:
+      - cyber-viz-network
+    restart: unless-stopped
+
+networks:
+  cyber-viz-network:
+    driver: bridge
+
+volumes:
+  mitre-data:
